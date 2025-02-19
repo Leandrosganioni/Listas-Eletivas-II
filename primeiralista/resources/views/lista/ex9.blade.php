@@ -16,6 +16,6 @@
 
 
 @isset($centimetros)
-<p> A quantidade convertida de metros para centimetros é: {{ $centimetros }}</p>
+<p> A quantidade convertida de metros para centimetros é: {{ $centimetros }} cm</p>
 @endisset
 @endsection
