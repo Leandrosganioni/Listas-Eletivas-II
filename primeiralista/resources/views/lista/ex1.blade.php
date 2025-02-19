@@ -28,3 +28,4 @@
         <p>A média é {{ $media }}</p>
     @endisset
 @endsection
+
