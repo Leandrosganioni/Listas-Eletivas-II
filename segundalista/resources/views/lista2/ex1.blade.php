@@ -3,7 +3,7 @@
 @section('conteudo')
 
     
-    <form method="post" action="/formulario_resposta">
+    <form method="post" action="/ex1_resposta">
 
     @csrf           
                         <div class="mb-3">
@@ -19,8 +19,8 @@
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             
-    @isset($soma)
-        <p>A soma é {{ $soma }}</p>
+    @isset($resultado)
+        <p>O resultado é {{ $resultado }}</p>
     @endisset
 @endsection
 

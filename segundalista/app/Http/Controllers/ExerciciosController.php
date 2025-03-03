@@ -19,6 +19,19 @@ class ExerciciosController extends Controller{
     }
 
     #exercicio 1
-    
+    public function abrirCalcularSoma(){
+        return view("lista2.ex1");
+    }
+    public function calcularSoma(Request $request) {
+        $valor1 = intval($request->input("valor1"));
+        $valor2 = intval($request->input("valor2"));
+        if ($valor1 == $valor2) {
+            $resultado = ($valor1 + $valor2) * 3;
+        } else {
+            $resultado = $valor1 + $valor2;
+        }
+        return view("lista2.ex1", compact("resultado"));
+    }
 
+    #exercicio
 }
