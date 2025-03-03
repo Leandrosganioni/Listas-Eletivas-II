@@ -16,3 +16,8 @@ Route::post("/formulario_resposta", [ExerciciosController::class, "calcularFormu
 #exercicio1
 Route::get("/ex1", [ExerciciosController::class, 'abrirCalcularSoma']);
 Route::post("/ex1_resposta", [ExerciciosController::class, "calcularSoma"]);
+
+#exercicio2
+Route::get("/ex2", [ExerciciosController::class, 'abrirValores']);
+Route::post("/ex2_resposta", [ExerciciosController::class, "Valores"]);
+
