@@ -16,7 +16,14 @@
                 </form>
             
     @isset($regressiva)
-        <p>O resultado é {{ $regressiva }}</p>
+    @if(isset($regressiva) && count($regressiva) > 0)
+    <p>Contagem regressiva:</p>
+    <ul>
+        @foreach($regressiva as $num)
+            <li>{{ $num }}</li>
+        @endforeach
+    </ul>
+@endif
     @endisset
 @endsection
 

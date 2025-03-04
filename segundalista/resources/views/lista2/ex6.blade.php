@@ -16,7 +16,15 @@
                 </form>
             
     @isset($contagem)
-        <p>O resultado é {{ $contagem }}</p>
+        @if(isset($contagem) && count($contagem) > 0)
+        <p>Contagem progressiva:</p>
+        <ul>
+            @foreach($contagem as $num)
+                <li>{{ $num }}</li>
+            @endforeach
+        </ul>
+    @endif
+
     @endisset
 @endsection
 

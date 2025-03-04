@@ -158,9 +158,12 @@ class ExerciciosController extends Controller{
 
     public function numeros(Request $request){
         $numero = intval($request->input("numero"));
-
-        #logica
-
+        $contagem = [];
+    
+        for ($i = 0; $i <= $numero; $i++) { 
+            $contagem[] = $i; 
+        }
+    
         return view("lista2.ex6", compact("contagem"));
     }
 
@@ -171,11 +174,17 @@ class ExerciciosController extends Controller{
 
     public function somatorio(Request $request){
         $numero = intval($request->input("numero"));
-
-        #logica
-
+        $somatorio = 0;
+        $i = 1; 
+    
+        while ($i <= $numero) {
+            $somatorio += $i; 
+            $i++; 
+        }
+    
         return view("lista2.ex7", compact("somatorio"));
     }
+    
 
     #exercicio 8
     public function abreRegressiva(){
@@ -184,8 +193,11 @@ class ExerciciosController extends Controller{
 
     public function regressiva(Request $request){
         $numero = intval($request->input("numero"));
+        $regressiva = [];
 
-        #logica
+        for ($i = $numero; $i >= 0; $i--) { 
+            $regressiva[] = $i; 
+        }
 
         return view("lista2.ex8", compact("regressiva"));
     }
@@ -197,11 +209,15 @@ class ExerciciosController extends Controller{
 
     public function fatorial(Request $request){
         $numero = intval($request->input("numero"));
-
-        #logica
-
+        $fatorial = 1;
+    
+        for ($i = $numero; $i > 1; $i--) { 
+            $fatorial *= $i; 
+        }
+    
         return view("lista2.ex9", compact("fatorial"));
     }
+    
 
     #exercicio 10
     public function abreTabuada(){
@@ -210,16 +226,13 @@ class ExerciciosController extends Controller{
 
     public function tabuada(Request $request){
         $numero = intval($request->input("numero"));
-
-        #logica
-
+        $tabuada = [];
+    
+        for ($i = 1; $i <= 10; $i++) { 
+            $tabuada[] = "$numero × $i = " . ($numero * $i);
+        }
+    
         return view("lista2.ex10", compact("tabuada"));
     }
-    
-    
-
-
-
-
 
 }

@@ -16,7 +16,15 @@
                 </form>
             
     @isset($tabuada)
-        <p>O resultado é {{ $tabuada }}</p>
+        @if(isset($tabuada) && count($tabuada) > 0)
+            <p>Tabuada do número informado:</p>
+        <ul>
+            @foreach($tabuada as $linha)
+                <li>{{ $linha }}</li>
+            @endforeach
+        </ul>
+        @endif
+
     @endisset
 @endsection
 
