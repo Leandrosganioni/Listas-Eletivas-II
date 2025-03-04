@@ -60,10 +60,14 @@ class ExerciciosController extends Controller{
 
     public function produto(Request $request){
         $valor = intval($request->input("valor"));
-
-        #logica
-
-        return view("lista2.ex3", compact("valorNovo"));
+    
+        if ($valor > 100){
+            $valorNovo = $valor + ($valor * 0.15); 
+        } else {
+            $valorNovo = $valor;
+        }
+    
+        return view("lista2.ex3", compact("valorNovo")); 
     }
 
     #exercicio 4
@@ -73,10 +77,24 @@ class ExerciciosController extends Controller{
 
     public function primos(Request $request){
         $numero = intval($request->input("numero"));
-
-        #logica
-
-        return view("lista2.ex4", compact("numerosPrimos"));
+        $numerosPrimos = [];
+    
+        for ($i = 2; $i <= $numero; $i++) { 
+            $ehPrimo = true; 
+    
+            for ($j = 2; $j <= sqrt($i); $j++) { 
+                if ($i % $j == 0) {
+                    $ehPrimo = false; 
+                    break;
+                }
+            }
+    
+            if ($ehPrimo) {
+                $numerosPrimos[] = $i;
+            }
+        }
+    
+        return view("lista2.ex4", compact("numerosPrimos")); 
     }
 
     #exercicio 5
@@ -86,11 +104,52 @@ class ExerciciosController extends Controller{
 
     public function meses(Request $request){
         $mes = intval($request->input("mes"));
-
-        #logica
-
+        $nomeMes = "";
+    
+        switch ($mes) {
+            case 1:
+                $nomeMes = "Janeiro";
+                break;
+            case 2:
+                $nomeMes = "Fevereiro";
+                break;
+            case 3:
+                $nomeMes = "Março";
+                break;
+            case 4:
+                $nomeMes = "Abril";
+                break;
+            case 5:
+                $nomeMes = "Maio";
+                break;
+            case 6:
+                $nomeMes = "Junho";
+                break;
+            case 7:
+                $nomeMes = "Julho";
+                break;
+            case 8:
+                $nomeMes = "Agosto";
+                break;
+            case 9:
+                $nomeMes = "Setembro";
+                break;
+            case 10:
+                $nomeMes = "Outubro";
+                break;
+            case 11:
+                $nomeMes = "Novembro";
+                break;
+            case 12:
+                $nomeMes = "Dezembro";
+                break;
+            default:
+                $nomeMes = "Mês inválido";
+        }
+    
         return view("lista2.ex5", compact("nomeMes"));
     }
+    
 
     #exercicio 6
     public function abreNumeros(){

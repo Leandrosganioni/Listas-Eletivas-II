@@ -15,7 +15,15 @@
                 </form>
             
     @isset($numerosPrimos)
-        <p>O resultado é {{ $numerosPrimos }}</p>
+    @isset($numerosPrimos)
+    <p>O resultado é:</p>
+    <ul>
+        @foreach($numerosPrimos as $primo)
+            <li>{{ $primo }}</li>
+        @endforeach
+    </ul>
+@endisset
+
     @endisset
 @endsection
 
